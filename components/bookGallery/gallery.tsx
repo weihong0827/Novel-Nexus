@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import { listBooks } from "./action"
 import { BookItem } from "./bookItem"
+import { Search } from "./search"
 
 
 
@@ -18,10 +19,7 @@ export async function BookGallery() {
         <p className="text-gray-500 dark:text-gray-400">Search for books by title, author, or genre</p>
       </div>
       <div className="space-y-4">
-        <div className="flex items-center space-x-4">
-          <Input className="max-w-lg flex-1" placeholder="Search by title, author, or genre" type="text" />
-          <Button type="submit">Search</Button>
-        </div>
+        <Search/>
         <Separator />
       </div>
       {books.map((book) => (

@@ -13,6 +13,9 @@ The P2P Book Exchange Platform is a community-driven web application designed to
 - **Exchange Requests**: Send and receive exchange requests from other users, with the ability to accept, reject, or negotiate terms.
 
 - **Search and Filtering**: Find books of interest through a comprehensive search feature, with filters for genre, author, book condition, and more.
+  - most popular books
+  - most recent books
+  - highest rated books
 
 - **Borrow Credit System**: Earn credits by lending your books, which can then be used to borrow books from others.
 

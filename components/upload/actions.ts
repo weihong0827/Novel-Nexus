@@ -46,7 +46,7 @@ export const createBook = async (book: BookCreate) => {
   throw new Error('Error creating book')
     }
 }
-async function generateEmbedding(raw: string) {
+export async function generateEmbedding(raw: string) {
   // OpenAI recommends replacing newlines with spaces for best results
   const input = raw.replace(/\n/g, ' ')
   const embeddingData = await openai.embeddings.create({
