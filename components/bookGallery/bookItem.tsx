@@ -32,6 +32,8 @@ export const BookItem: React.FC<BookItemProps> = ({ book }) => {
           </p>
           <h3 className="text-xl font-semibold">Condition</h3>
           <p>{book.condition}</p>
+          <h3 className="text-xl font-semibold">Seed Required</h3>
+          <p>{book.seedAmount}</p>
           <ExchangeRequestDialog book={book} />
         </div>
       </div>
