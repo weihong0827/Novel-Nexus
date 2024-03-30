@@ -10,6 +10,7 @@ import { DialogClose } from "@radix-ui/react-dialog"
 import { useRef } from "react"
 import { exchange } from "@/lib/exchange"
 import { useToast } from "@/components/ui/use-toast"
+import Link from 'next/link'
 export interface ExchangeRequestFormProps {
   book: Book
 }
@@ -23,6 +24,8 @@ export const ExchangeRequestDialog: React.FC<ExchangeRequestFormProps> = ({ book
       toast({
         title: 'Success',
         description: "Request sent successfully",
+        action: <Button><Link href="/my-requests">View Requests</Link></Button>
+
       })
     } catch (error) {
       toast({

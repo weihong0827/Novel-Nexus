@@ -43,30 +43,24 @@ model Book {
 enum ExchangeStatus {
   REQUESTED
   ACCEPTED
+  CANCELLED
   DECLINED
   COMPLETED
 }
 
 model Exchange {
-  id               Int            @id @default(autoincrement())
-  bookId           Int
-  book             Book           @relation(fields: [bookId], references: [id])
-  requesterId      String
-  requester        User           @relation("Requester", fields: [requesterId], references: [id])
-  ownerId          String
-  owner            User           @relation("Owner", fields: [ownerId], references: [id])
-  RequesterMessage String?
-  transaction      Transaction[]
-  status           ExchangeStatus @default(REQUESTED)
-  createdAt        DateTime       @default(now())
-}
-
-model Transaction {
-  id         Int      @id @default(autoincrement())
-  exchangeId Int
-  exchange   Exchange @relation(fields: [exchangeId], references: [id])
-  amount     Int
-  createdAt  DateTime @default(now())
+  id                Int            @id @default(autoincrement())
+  bookId            Int
+  book              Book           @relation(fields: [bookId], references: [id])
+  requesterId       String
+  requester         User           @relation("Requester", fields: [requesterId], references: [id])
+  ownerId           String
+  owner             User           @relation("Owner", fields: [ownerId], references: [id])
+  RequesterMessage  String?
+  status            ExchangeStatus @default(REQUESTED)
+  exchangeStartDate DateTime?
+  exchangeEndDate   DateTime?
+  createdAt         DateTime       @default(now())
 }
 
 model User {

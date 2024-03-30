@@ -34,6 +34,7 @@ export const MainNav: React.FC<MainNavProps> = ({ user }) => {
       <span className="text-2xl font-bold">Logo</span>
       <NavigationMenu>
         <NavigationMenuList>
+
           {user &&
             <NavigationMenuItem>
               <div className={navigationMenuTriggerStyle()}>
@@ -57,8 +58,8 @@ export const MainNav: React.FC<MainNavProps> = ({ user }) => {
             </NavigationMenuItem>
           }
           <NavigationMenuItem>
-            <Link href="/upload" className={navigationMenuTriggerStyle()}>
-              Upload
+            <Link href="/my-requests" className={navigationMenuTriggerStyle()}>
+              My Requests
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
