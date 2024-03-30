@@ -18,7 +18,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {images.map((image, index) => (
           <CarouselItem key={index} className="w-full h-full">
             <div className="relative h-96 w-96">
-              <Image src={image} layout="fill" alt={`Image ${index}`} />
+              <Image src={image} fill alt={`Image ${index}`} />
             </div>
           </CarouselItem>
         ))}

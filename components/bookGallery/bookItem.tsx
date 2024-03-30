@@ -12,7 +12,7 @@ export const BookItem: React.FC<BookItemProps> = ({ book }) => {
   return (
     <>
       <div className="grid md:grid-cols-2 items-start gap-4">
-        <div className="flex gap-4 justify-center w-full" >
+        <div className="flex gap-4 justify-center" >
 
           {book.image.length > 0 ? <ImageCarousel images={book.image} />
             : <div className="w-full max-w-96 h-96 bg-gray-200 dark:bg-gray-800 rounded-md"></div>}

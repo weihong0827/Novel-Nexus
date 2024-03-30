@@ -27,6 +27,7 @@ model Book {
   ownerId     String
   exchanges   Exchange[]
   embedding   Unsupported("vector(1536)")?
+  @@map("book")
 }
 
 model Exchange {
