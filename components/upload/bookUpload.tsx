@@ -20,7 +20,11 @@ export const BookUpload = () => {
             Upload New Book
           </Button>
         </DialogTrigger>
+
         <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Upload New Book</DialogTitle>
+          </DialogHeader>
           <BookForm />
         </DialogContent>
       </Dialog>

@@ -5,7 +5,7 @@ import { PrismaClient, Prisma } from '@prisma/client'
 import { currentUser } from '@clerk/nextjs';
 import { openai } from '@/lib/openai'
 import { revalidateTag } from 'next/cache'
-const prisma = new PrismaClient()
+import { prismaClient as prisma } from '@/prisma/client';
 
 
 export const createBook = async (book: BookCreate) => {

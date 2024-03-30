@@ -5,7 +5,8 @@ import { currentUser } from '@clerk/nextjs';
 import { generateEmbedding } from '@/components/upload/actions'
 import { unstable_cache } from 'next/cache';
 
-const prisma = new PrismaClient()
+import { prismaClient as prisma } from '@/prisma/client';
+
 export const listBooks = unstable_cache(async () => {
   const books = await prisma.book.findMany()
 

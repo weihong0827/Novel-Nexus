@@ -1,9 +1,10 @@
 'use client'
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { ExchangeRequestDialog } from '@/components/exchangeRequest/exchangeRequest';
 import { Book } from "prisma/prisma-client"
 import { Separator } from '@/components/ui/separator';
 import { ImageCarousel } from './imageCarousel';
+
 export interface BookItemProps {
   book: Book
 }
@@ -31,7 +32,7 @@ export const BookItem: React.FC<BookItemProps> = ({ book }) => {
           </p>
           <h3 className="text-xl font-semibold">Condition</h3>
           <p>{book.condition}</p>
-          <Button>Request</Button>
+          <ExchangeRequestDialog book={book} />
         </div>
       </div>
       <Separator />
