@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+## Overview
+
+The P2P Book Exchange Platform is a community-driven web application designed to facilitate the easy exchange of physical books. By leveraging a Peer-to-Peer model, the platform aims to breathe new life into books that are no longer being read, reducing waste and promoting a culture of sharing and sustainability among readers.
+
+## Features
+
+- **User Profiles**: Customize your reading interests, track your book exchange history, and manage your book listings.
+
+- **Book Listings**: Easily list the books you're willing to exchange, complete with details like book condition, genre, and author.
+
+- **Exchange Requests**: Send and receive exchange requests from other users, with the ability to accept, reject, or negotiate terms.
+
+- **Search and Filtering**: Find books of interest through a comprehensive search feature, with filters for genre, author, book condition, and more.
+
+- **Borrow Credit System**: Earn credits by lending your books, which can then be used to borrow books from others.
+
+- **Listing Sorting**: Sort book listings by relevance, popularity, or date added to find exactly what you're looking for.
+
+- **Bot Chat**: Engage with our AI-powered bot for recommendations, platform navigation help, and more.
+
+- **User Chat**: Connect directly with other users to discuss book exchanges, coordinate shipping, or simply share your love for reading.
+
+
+## Tech Stack
+- Webapp: Next.js,  Tailwind CSS, Shadcn
+- Database: Prisma, PostgreSQL
+- Authentication: Clerk
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- List of software, tools, or libraries required (e.g., Node.js, Python, Docker).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Step-by-step instructions to set up the development environment.
+2. How to install dependencies.
+3. Any environment variables or configuration files that need to be set up.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Running the Application
 
-## Learn More
+- Instructions on how to start the application.
+- Additional steps, if any, to make the application fully operational.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Guide on how to use the platform, highlighting key features.
+- Tips for navigating the platform efficiently.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Development
 
-## Deploy on Vercel
+- Brief overview of the architecture.
+- Explanation of key components and their interactions.
+- Guide to the codebase organization and contribution guidelines.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Extensions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Overview of planned features or improvements.
+- Potential areas for community contributions.
+
+## Evaluation Criteria
+
+Our POC aims to demonstrate functionality, code quality, innovation, and the effective use of tools and technologies. We prioritized features that offer the most significant impact on user experience and engagement, focusing on a seamless book exchange process.
+
+## Contributions
+
+- How others can contribute to the project.
+- Link to contribution guidelines.
+
+## License
+
+- Specify the license under which the project is released.
+
+## Acknowledgments
+
+- Credits to any third-party assets or libraries used.
+- Special thanks, if any.
+
