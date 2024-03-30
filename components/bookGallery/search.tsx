@@ -10,7 +10,7 @@ import {
 import { type Book } from '@prisma/client'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce'
-import { searchBook } from './action'
+import { searchBook } from '@/lib/book'
 
 
 
@@ -23,7 +23,7 @@ export function Search() {
   useEffect(() => {
     let current = true
     if (debouncedQuery.trim().length > 0) {
-      searchBook(debouncedQuery).then((results:Array<Book&{similarity?:number}>) => {
+      searchBook(debouncedQuery).then((results: Array<Book & { similarity?: number }>) => {
         if (current) {
           setSearchResults(results)
         }

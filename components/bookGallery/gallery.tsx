@@ -1,10 +1,7 @@
 
 
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import Link from "next/link"
-import { listBooks } from "./action"
+import { listBooks } from "@/lib/book"
 import { BookItem } from "./bookItem"
 import { Search } from "./search"
 
@@ -19,7 +16,7 @@ export async function BookGallery() {
         <p className="text-gray-500 dark:text-gray-400">Search for books by title, author, or genre</p>
       </div>
       <div className="space-y-4">
-        <Search/>
+        <Search />
         <Separator />
       </div>
       {books.map((book) => (
