@@ -13,7 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Book {
   id          Int        @id @default(autoincrement())
   title       String
@@ -22,8 +21,7 @@ model Book {
   isbn        String?    @unique
   description String?
   condition   String
-  ownerId     Int
-  owner       String[]
+  ownerId     String
   exchanges   Exchange[]
 }
 
@@ -31,10 +29,8 @@ model Exchange {
   id          Int      @id @default(autoincrement())
   bookId      Int
   book        Book     @relation(fields: [bookId], references: [id])
-  requesterId Int
-  requester   String[]
-  ownerId     Int
-  owner       String[]
+  requesterId String
+  ownerId     String
   status      String // e.g., "requested", "accepted", "declined", "completed"
   createdAt   DateTime @default(now())
 }

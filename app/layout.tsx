@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
-import {MainNav} from "@/components/nav"
+import { MainNav } from "@/components/nav"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body className={inter.className}>
-          <MainNav/>
-        {children}
+      <html lang="en">
+        <body className={inter.className}>
+          <main className="flex min-h-screen flex-col items-center  ">
+            <MainNav />
+            {children}
 
-        
-      </body>
-    </html></ClerkProvider>
+          </main>
+
+        </body>
+      </html></ClerkProvider>
   );
 }
