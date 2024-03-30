@@ -1,5 +1,5 @@
-
 'use server'
+
 import { BookCreate, TFormValues } from "@/types/book";
 import { Book } from '@prisma/client'
 import { currentUser } from '@clerk/nextjs';
@@ -18,6 +18,18 @@ export const listBooks = unstable_cache(async () => {
   ['books'],
   { tags: ['books'] }
 )
+
+export const getOwnListing = async () => {
+  const user = await currentUser();
+  if (!user) {
+    throw new Error('User not found')
+  }
+  return await prisma.book.findMany({
+    where: {
+      ownerId: user.id
+    }
+  })
+}
 
 
 
