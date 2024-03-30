@@ -24,7 +24,7 @@ import { Info } from 'lucide-react';
 
 
 export interface MainNavProps {
-  user: User
+  user: User|null
 }
 
 

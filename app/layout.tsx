@@ -18,7 +18,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getUser();
+  let user = null;
+  try {
+  user = await getUser();
+  } catch (error) {
+    console.error(error)
+      }
+
   return (
     <ClerkProvider>
       <html lang="en">
