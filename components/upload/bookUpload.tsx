@@ -14,7 +14,7 @@ export const BookUpload = () => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button>
 
             Upload New Book
