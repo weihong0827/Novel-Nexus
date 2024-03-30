@@ -55,16 +55,21 @@ export function BookForm() {
       urls.push(result.url)
 
     }
+
     const bookValuesWithUrls: BookCreate = {
       ...values,
       bookImages: urls, // Replace the File array with the URLs array
     };
+    try {
+      const result = await createBook(bookValuesWithUrls);
+      setLoading(false);
+      form.reset();
+      toast({ description: "Book created successfully" })
 
-    await createBook(bookValuesWithUrls);
-    setLoading(false);
-    form.reset();
-    toast({ description: "Book created successfully" })
-
+    } catch (error) {
+      setLoading(false);
+      toast({ description: "Failed to create book" })
+    }
 
   }
 

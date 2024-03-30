@@ -4,7 +4,7 @@ import { BookCreate, TFormValues } from "@/types/book";
 import { PrismaClient, Prisma } from '@prisma/client'
 import { currentUser } from '@clerk/nextjs';
 import { openai } from '@/lib/openai'
-import { revalidatePath } from 'next/cache'
+import { revalidateTag } from 'next/cache'
 const prisma = new PrismaClient()
 
 
@@ -40,7 +40,7 @@ export const createBook = async (book: BookCreate) => {
           SET embedding = ${embedding}::vector
           WHERE id = ${newBook.id}`
       console.log(newBook)
-      revalidatePath('/')
+      revalidateTag('books')
     })
   } catch (error) {
     console.error('Error creating book', error)
