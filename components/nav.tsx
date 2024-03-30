@@ -30,8 +30,8 @@ export interface MainNavProps {
 
 export const MainNav: React.FC<MainNavProps> = ({ user }) => {
   return (
-    <div className="flex items-center justify-between w-full px-4 py-4">
-      <span className="text-2xl font-bold">Logo</span>
+    <div className="flex items-center justify-between  w-full px-4 py-4">
+      <Link className="text-2xl font-bold" href="/">NOVEL NEXUS</Link>
       <NavigationMenu>
         <NavigationMenuList>
 
