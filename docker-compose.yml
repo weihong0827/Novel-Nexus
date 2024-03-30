@@ -2,20 +2,20 @@
 version: '3.8'
 
 services:
-  bookstore:
-    container_name: p2p-book
-    build:
-      context: . # Adjust this path to your Next.js app's directory
-      dockerfile: Dockerfile # Assuming you have a Dockerfile in your Next.js app directory
-    volumes:
-      - .:/usr/src/app # Mount the app directory into the container
-      - /usr/src/app/node_modules # Keep node_modules on a named volume
-    ports:
-      - "3000:3000" # Expose port 3000 for the Next.js app
-    environment:
-      - DATABASE_URL=postgres://admin:admin1234@postgres:5432/bookstore # Adjust with your DB credentials
-    depends_on:
-      - postgres
+  # bookstore:
+  #   container_name: p2p-book
+  #   build:
+  #     context: . # Adjust this path to your Next.js app's directory
+  #     dockerfile: Dockerfile # Assuming you have a Dockerfile in your Next.js app directory
+  #   volumes:
+  #     - .:/usr/src/app # Mount the app directory into the container
+  #     - /usr/src/app/node_modules # Keep node_modules on a named volume
+  #   ports:
+  #     - "3000:3000" # Expose port 3000 for the Next.js app
+  #   environment:
+  #     - DATABASE_URL=postgres://admin:admin1234@postgres:5432/bookstore # Adjust with your DB credentials
+  #   depends_on:
+  #     - postgres
 
   postgres:
     container_name: postgres-db
