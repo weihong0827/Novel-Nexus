@@ -30,6 +30,13 @@ export const getOwnListing = async () => {
     }
   })
 }
+export const getBook = async (id: number) => {
+  return await prisma.book.findUnique({
+    where: {
+      id
+    }
+  })
+}
 
 
 
