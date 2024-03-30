@@ -32,6 +32,10 @@ export function BookForm() {
       author: "",
       genre: "",
       condition: "",
+      seed: 0,
+      description: "",
+      bookImages: [],
+
     },
   });
   const { toast } = useToast();
@@ -132,6 +136,21 @@ export function BookForm() {
                 <FormControl>
                   {/* TODO: Implement AutoComplete */}
                   <Input {...field} placeholder="condition" />
+
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="seed"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="pl-1">Seed</FormLabel>
+                <FormControl>
+                  <Input {...field} type={"number"} onChange={(e) => field.onChange(e.target.valueAsNumber)} placeholder="How much you want to rent for" />
 
                 </FormControl>
 

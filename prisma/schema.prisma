@@ -26,41 +26,42 @@ model Book {
   image       String[]
   ownerId     String
   owner       User                         @relation(fields: [ownerId], references: [id])
+  seedAmount  Int
   exchanges   Exchange[]
   embedding   Unsupported("vector(1536)")?
+
   @@map("book")
 }
 
 model Exchange {
-  id          Int      @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   bookId      Int
-  book        Book     @relation(fields: [bookId], references: [id])
+  book        Book          @relation(fields: [bookId], references: [id])
   requesterId String
-  requester   User     @relation("Requester", fields: [requesterId], references: [id])
+  requester   User          @relation("Requester", fields: [requesterId], references: [id])
   ownerId     String
-  owner       User     @relation("Owner", fields: [ownerId], references: [id])
+  owner       User          @relation("Owner", fields: [ownerId], references: [id])
   transaction Transaction[]
   status      String // e.g., "requested", "accepted", "declined", "completed"
-  createdAt   DateTime @default(now())
+  createdAt   DateTime      @default(now())
 }
 
 model Transaction {
-  id          Int      @id @default(autoincrement())
-  exchangeId  Int
-  exchange    Exchange @relation(fields: [exchangeId], references: [id])
-  amount      Int
-  status      String   // e.g., "pending", "completed"
-  createdAt   DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  exchangeId Int
+  exchange   Exchange @relation(fields: [exchangeId], references: [id])
+  amount     Int
+  status     String // e.g., "pending", "completed"
+  createdAt  DateTime @default(now())
 }
 
 model User {
-  id        String    @id // This ID will be provided by the external authentication system.
-  email     String    @unique // Assuming you might still store emails or other details.
-  name      String?
-  credits   Int       @default(0) // Tracks the credit balance of the user.
-  books     Book[]    // Relation to books they own or interact with.
+  id                 String     @id // This ID will be provided by the external authentication system.
+  email              String     @unique // Assuming you might still store emails or other details.
+  name               String?
+  credits            Int        @default(0) // Tracks the credit balance of the user.
+  books              Book[] // Relation to books they own or interact with.
   requestedExchanges Exchange[] @relation("Requester")
   ownedExchanges     Exchange[] @relation("Owner")
   // Other relevant fields but excluding authentication-specific ones.
 }
-

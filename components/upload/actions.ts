@@ -15,36 +15,37 @@ export const createBook = async (book: BookCreate) => {
     throw new Error('User not found')
   }
   const embedding = await generateEmbedding(
-    "title: " + book.name + " " + "author: " + book.author 
-      + " " + "genre: " + book.genre 
-      + " " + "description: " + book.description + " "
+    "title: " + book.name + " " + "author: " + book.author
+    + " " + "genre: " + book.genre
+    + " " + "description: " + book.description + " "
   )
   try {
 
-  prisma.$transaction(async(tx)=>{
-    // Create a new book
-    const newBook = await tx.book.create({
-      data: {
-        title: book.name,
-        author: book.author,
-        genre: book.genre,
-        condition: book.condition,
-        description: book.description,
-        image: book.bookImages,
-        ownerId: user.id,
+    prisma.$transaction(async (tx) => {
+      // Create a new book
+      const newBook = await tx.book.create({
+        data: {
+          title: book.name,
+          seedAmount: book.seed,
+          author: book.author,
+          genre: book.genre,
+          condition: book.condition,
+          description: book.description,
+          image: book.bookImages,
+          ownerId: user.id,
+        }
       }
-    }
-    )
-    await tx.$executeRaw`UPDATE book
+      )
+      await tx.$executeRaw`UPDATE book
           SET embedding = ${embedding}::vector
           WHERE id = ${newBook.id}`
-  console.log(newBook)
-    revalidatePath('/')
-  })
+      console.log(newBook)
+      revalidatePath('/')
+    })
   } catch (error) {
-  console.error('Error creating book', error)
-  throw new Error('Error creating book')
-    }
+    console.error('Error creating book', error)
+    throw new Error('Error creating book')
+  }
 }
 export async function generateEmbedding(raw: string) {
   // OpenAI recommends replacing newlines with spaces for best results

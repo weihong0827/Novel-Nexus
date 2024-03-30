@@ -22,6 +22,7 @@ export const formSchema = z.object({
       (files) => ACCEPTED_IMAGE_MIME_TYPES.includes(files?.[0]?.type),
       "Only .jpg, .jpeg, .png and .webp formats are supported."
     ),
+  seed: z.number().min(1).max(100),
   condition: z.string().min(3),
 
 });
