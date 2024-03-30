@@ -58,6 +58,11 @@ export const MainNav: React.FC<MainNavProps> = ({ user }) => {
             </NavigationMenuItem>
           }
           <NavigationMenuItem>
+            <Link href="/" className={navigationMenuTriggerStyle()}>
+              Home
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <Link href="/my-requests" className={navigationMenuTriggerStyle()}>
               My Requests
             </Link>
