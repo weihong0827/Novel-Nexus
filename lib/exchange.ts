@@ -189,7 +189,7 @@ export const completeExchange = async (exchangeId: number) => {
       if (!exchange) {
         throw new Error('Exchange not found')
       }
-      if (exchange.requesterId !== user.id) {
+      if (exchange.ownerId !== user.id) {
         throw new Error('User not authorized')
       }
       await tx.exchange.update({
