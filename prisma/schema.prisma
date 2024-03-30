@@ -21,6 +21,7 @@ model Book {
   isbn        String?    @unique
   description String?
   condition   String
+  image       String[]
   ownerId     String
   exchanges   Exchange[]
 }
