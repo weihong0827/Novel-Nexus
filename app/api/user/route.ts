@@ -5,7 +5,7 @@ import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import {Prisma,PrismaClient,User} from '@prisma/client'
 const prisma = new PrismaClient()
-const createUser=async (id:string,emails:string,name?:string)=>{
+const createUser=async (id:string,emails:string,name:string|null)=>{
   await prisma.user.create({
     data:{
       id:id,
