@@ -4,11 +4,6 @@ import { ExchangeTable } from "@/components/exchangeRequest/exchangeTable";
 
 import { TypographyH1 } from "@/components/Typography/h1";
 
-const formattedDate = (date: Date) => {
-  const newDate = new Date(date)
-  const dateString = newDate.toDateString()
-  return dateString;
-}
 
 
 export default async function MyRequests() {

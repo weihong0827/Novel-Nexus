@@ -119,6 +119,9 @@ export const acceptExchange = async (exchangeId: number) => {
       //     status: ExchangeStatus.DECLINED
       //   }
       //         })
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
 
     revalidateTag('myLendRequests')
@@ -157,6 +160,9 @@ export const declineExchange = async (exchangeId: number) => {
           status: ExchangeStatus.DECLINED
         }
       })
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
     revalidateTag('myLendRequests')
     revalidateTag('myBorrowRequests')
@@ -226,6 +232,9 @@ export const completeExchange = async (exchangeId: number) => {
         }
       })
 
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
     revalidateTag('myLendRequests')
     revalidateTag('myBorrowRequests')
@@ -257,6 +266,9 @@ export const deleteExchange = async (exchangeId: number) => {
           id: exchangeId
         }
       })
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
     revalidateTag('myLendRequests')
     revalidateTag('myBorrowRequests')
@@ -292,6 +304,9 @@ export const cancelExchange = async (exchangeId: number) => {
           status: ExchangeStatus.CANCELLED
         }
       })
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
     revalidateTag('myLendRequests')
     revalidateTag('myBorrowRequests')

@@ -101,6 +101,9 @@ export const createBook = async (book: BookCreate) => {
           WHERE id = ${newBook.id}`
       console.log(newBook)
       revalidateTag('books')
+    },{
+      maxWait: 20000, // default: 2000
+      timeout: 60000, // default: 5000
     })
   } catch (error) {
     console.error('Error creating book', error)
