@@ -29,6 +29,7 @@ services:
       POSTGRES_PASSWORD: admin1234 # Your database password
     ports:
       - "5432:5432" # Expose PostgreSQL port
+    
 
 volumes:
   postgres_data: # Named volume for PostgreSQL
