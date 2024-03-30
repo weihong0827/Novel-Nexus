@@ -11,7 +11,7 @@ const createUser = async (id: string, emails: string, name: string | null) => {
       id: id,
       email: emails,
       name: name,
-      credits: 0
+      credits: 500
     }
   })
 }

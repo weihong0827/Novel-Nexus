@@ -123,7 +123,7 @@ export function BookForm() {
                 <FormLabel className="pl-1">Genre</FormLabel>
                 <FormControl>
                   {/* TODO: Implement AutoComplete */}
-                  <Input {...field} placeholder="Genre (comma seperated) eg. horror,fiction" />
+                  <Input {...field} placeholder="Genre " />
 
 
                 </FormControl>
@@ -184,7 +184,7 @@ export function BookForm() {
             render={({ field: { onChange, value, ...rest } }) => (
               <>
                 <FormItem>
-                  <FormLabel>Project Image</FormLabel>
+                  <FormLabel>Book Images</FormLabel>
                   <FormControl>
                     <Input
                       type="file"
