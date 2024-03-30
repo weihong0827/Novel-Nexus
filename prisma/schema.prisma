@@ -5,25 +5,28 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [vector]
 }
 
 model Book {
-  id          Int        @id @default(autoincrement())
+  id          Int                          @id @default(autoincrement())
   title       String
   author      String
   genre       String
-  isbn        String?    @unique
+  isbn        String?                      @unique
   description String?
   condition   String
   image       String[]
   ownerId     String
   exchanges   Exchange[]
+  embedding   Unsupported("vector(1536)")?
 }
 
 model Exchange {
