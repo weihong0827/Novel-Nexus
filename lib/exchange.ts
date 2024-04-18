@@ -25,8 +25,9 @@ export const exchange = async (book: Book, message: string | null) => {
 }
 
 export type ExchangeDetails = Prisma.PromiseReturnType<typeof getBorrowRequests>
-const getBorrowRequests = async () => {
+export const getBorrowRequests = async () => {
   const user = await currentUser();
+  console.log('user', user)
 
   if (!user) {
     throw new Error('User not found')
@@ -48,7 +49,7 @@ export const myBorrowRequests = unstable_cache(getBorrowRequests,
   ['myBorrowRequests'],
   { tags: ['myBorrowRequests'] }
 )
-const getLendRequests = async () => {
+export const getLendRequests = async () => {
   const user = await currentUser();
   if (!user) {
     throw new Error('User not found')
@@ -119,7 +120,7 @@ export const acceptExchange = async (exchangeId: number) => {
       //     status: ExchangeStatus.DECLINED
       //   }
       //         })
-    },{
+    }, {
       maxWait: 20000, // default: 2000
       timeout: 60000, // default: 5000
     })
@@ -160,7 +161,7 @@ export const declineExchange = async (exchangeId: number) => {
           status: ExchangeStatus.DECLINED
         }
       })
-    },{
+    }, {
       maxWait: 20000, // default: 2000
       timeout: 60000, // default: 5000
     })
@@ -232,7 +233,7 @@ export const completeExchange = async (exchangeId: number) => {
         }
       })
 
-    },{
+    }, {
       maxWait: 20000, // default: 2000
       timeout: 60000, // default: 5000
     })
@@ -266,7 +267,7 @@ export const deleteExchange = async (exchangeId: number) => {
           id: exchangeId
         }
       })
-    },{
+    }, {
       maxWait: 20000, // default: 2000
       timeout: 60000, // default: 5000
     })
@@ -304,7 +305,7 @@ export const cancelExchange = async (exchangeId: number) => {
           status: ExchangeStatus.CANCELLED
         }
       })
-    },{
+    }, {
       maxWait: 20000, // default: 2000
       timeout: 60000, // default: 5000
     })
